@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    env_file: ./.env
+    environment:
+      - TZ=Asia/Tokyo
+    ports:
+      - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
+    volumes:
+      - ./mysql/conf:/etc/mysql/conf.d/:ro
+      - mysqldata:/var/lib/mysql
+    networks:
+      - default
+  app:
+    depends_on:
+      - mysql
+    image: node:12
+    env_file: ./.env
+    environment:
+      - TZ=Asia/Tokyo
+      - DEBUG=app:*
+    ports:
+      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    volumes:
+      - ./src:/app
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    command: npm start
+    networks:
+      - default
+
+networks:
+  default:
+
+volumes:
+  mysqldata:
