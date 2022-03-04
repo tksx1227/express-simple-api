@@ -33,7 +33,7 @@ services:
     working_dir: /app
     stdin_open: true
     tty: true
-    command: npm start
+    command: npm run dev
     networks:
       - default
 
