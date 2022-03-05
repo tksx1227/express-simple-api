@@ -6,7 +6,7 @@
     "password": "hogehoge",
     "database": "development_database",
     "entities": [
-        "entity/**/*.ts"
+        "dist/resources/entity/**/*.js"
     ],
     "logging": true,
     "synchronize": true
