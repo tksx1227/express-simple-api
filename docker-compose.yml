@@ -3,14 +3,9 @@ version: '3'
 services:
   mysql:
     image: mysql:5.7
-    env_file: ./.env
+    env_file: mysql/mysql.env
     environment:
       - TZ=Asia/Tokyo
-      - MYSQL_ROOT_HOST=$MYSQL_ROOT_HOST
-      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
-      - MYSQL_USER=$MYSQL_USER
-      - MYSQL_PASSWORD=$MYSQL_PASSWORD
-      - MYSQL_DATABASE=$MYSQL_DATABASE
     ports:
       - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
     volumes:
@@ -22,7 +17,6 @@ services:
     depends_on:
       - mysql
     image: node:12
-    env_file: ./.env
     environment:
       - TZ=Asia/Tokyo
       - DEBUG=app:*
