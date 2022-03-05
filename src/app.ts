@@ -1,11 +1,11 @@
-import express, { Application } from "express"
-import compression from "compression"
 import cors from "cors"
+import compression from "compression"
+import express, { Application } from "express"
+import helmet from "helmet"
 import morgan from "morgan"
-import { Sequelize, Model, DataTypes } from "sequelize"
+
 import Controller from "@/utils/interfaces/controller.interface"
 import ErrorMiddleware from "@/middleware/error.middleware"
-import helmet from "helmet"
 
 class App {
     public express: Application
@@ -41,7 +41,7 @@ class App {
     }
 
     private initializeDatabaseConnection(): void {
-        // Connect to MySQL here
+        // Connect to Database here
     }
 
     public listen(): void {

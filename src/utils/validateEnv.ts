@@ -5,10 +5,12 @@ export const validateEnv = (): void => {
         NODE_ENV: str({
             choices: ["development", "production"],
         }),
-        DB_PASSWORD: str(),
-        DB_PATH: str(),
-        DB_USER: str(),
-        PORT: port({ default: 3000 }),
+        NODE_PORT: port({ default: 3000 }),
+        MYSQL_USER: str(),
+        MYSQL_PASSWORD: str(),
+        MYSQL_HOST: str(),
+        MYSQL_PORT: port({ default: 3306 }),
+        MYSQL_DATABASE: str(),
     })
 }
 

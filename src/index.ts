@@ -5,6 +5,6 @@ import App from "./app"
 
 validateEnv()
 
-const app = new App([], Number(process.env.PORT))
+const app = new App([], Number(process.env.NODE_PORT))
 
 app.listen()
