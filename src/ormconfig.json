@@ -1,0 +1,13 @@
+{
+    "type": "mysql",
+    "host": "mysql",
+    "port": 3306,
+    "username": "root",
+    "password": "hogehoge",
+    "database": "development_database",
+    "entities": [
+        "entity/**/*.ts"
+    ],
+    "logging": true,
+    "synchronize": true
+}
